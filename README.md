@@ -1,8 +1,5 @@
-<div align="center">
-  #Fiverr Clone
-</div>
 
-<h1 align="center">Fiverr Clone App</h1>
+<h1>Fiverr Clone App</h1>
 
 <p align="center">A full-stack web application built with Node.js and React, using MongoDB and Cloudinary API.</p>
 
