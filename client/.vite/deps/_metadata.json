@@ -1,0 +1,44 @@
+{
+  "hash": "8c073fd1",
+  "browserHash": "dffe8241",
+  "optimized": {
+    "infinite-react-carousel": {
+      "src": "../../node_modules/infinite-react-carousel/lib/index.js",
+      "file": "infinite-react-carousel.js",
+      "fileHash": "0b265561",
+      "needsInterop": true
+    },
+    "infinite-react-carousel/lib": {
+      "src": "../../node_modules/infinite-react-carousel/lib/index.js",
+      "file": "infinite-react-carousel_lib.js",
+      "fileHash": "1c967d91",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "92747804",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2914d36e",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "4f22bbad",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-2Z4DTB73": {
+      "file": "chunk-2Z4DTB73.js"
+    },
+    "chunk-2FATVHAI": {
+      "file": "chunk-2FATVHAI.js"
+    }
+  }
+}
