@@ -5,6 +5,17 @@ import { useQuery } from '@tanstack/react-query'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Orders = () => {
+
+
+  // Make a function to fetch all users from database
+
+  const fetchAllUsers = async () => {
+    const res = await newRequest.get("/users");
+    return res.data;
+  };
+  
+
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const navigate = useNavigate();

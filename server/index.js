@@ -14,9 +14,14 @@ import multer from 'multer';
 import cloudinary from 'cloudinary';
 
 
+
+
 const app = express()
 dotenv.config()
 mongoose.set('strictQuery',true)
+app.use(cors({ origin: "http://localhost:5174", credentials: true }));  
+app.use(express.json())
+app.use(cookieParser())
 
 
 cloudinary.v2.config({
@@ -37,10 +42,6 @@ const connect = async ()=>{
     }
 }
 
-app.use(cors({origin: "http://localhost:5173",credentials: true}));
-  
-app.use(express.json())
-app.use(cookieParser())
 
 
 app.use("/api/auth", authRoute);

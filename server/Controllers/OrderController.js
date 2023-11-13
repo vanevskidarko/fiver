@@ -1,29 +1,39 @@
 import createError from "../Utils/CreateError.js"
 import Order from "../Models/Order.js"
 import Gig from "../Models/Gig.js"
+import Stripe from "stripe"
 
-export const createOrder = async (req, res) => {
-    try{
-        const gig = await Gig.findById(req.params.gigId)
+export const intent = async (req, res, next) => {
+    const stripe = new Stripe(process.env.STRIPE);
+  
+    const gig = await Gig.findById(req.params.id);
+  
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: gig.price * 100,
+      currency: "usd",
+      automatic_payment_methods: {
+        enabled: true,
+      },
+    });
+  
+    const newOrder = new Order({
+      gigId: gig._id,
+      img: gig.cover,
+      title: gig.title,
+      buyerId: req.userId,
+      sellerId: gig.userId,
+      price: gig.price,
+      payment_intent: paymentIntent.id,
+    });
+  
+    await newOrder.save();
+  
+    res.status(200).send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  };
+  
 
-        const newOrder = new Order({
-            gigId: gig._id,
-            img: gig.cover,
-            title: gig.title,
-            price: gig.price,
-            sellerId: gig.userId,
-            buyerId: req.userId,
-            payment_intent: "temporary"
-        })
-
-        await newOrder.save()
-        res.status(200).send("Order has been created")
-    }catch(error){
-        console.log(error)
-    }
-
-
-}
 
 export const getOrders = async (req, res) => {
     try {
